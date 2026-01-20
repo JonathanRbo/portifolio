@@ -367,62 +367,9 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* Skills Section */
-        .skill-item {
-            background: var(--bg-card);
-            border: 1px solid rgba(0, 212, 255, 0.15);
-            border-radius: 16px;
-            padding: 40px 30px;
-            text-align: center;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            min-height: 180px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .skill-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, transparent 100%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .skill-item:hover::before {
-            opacity: 1;
-        }
-
-        .skill-item:hover {
-            border-color: var(--primary-blue);
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.25);
-        }
-
-        .skill-icon {
-            font-size: 64px;
-            margin-bottom: 20px;
-            transition: all 0.4s ease;
-            filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.3));
-        }
-
-        .skill-item:hover .skill-icon {
-            transform: scale(1.1);
-            filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.6));
-        }
-
+        /* Skills Section - Badges Minimalistas */
         .skill-category-title {
             color: var(--primary-blue);
-            font-size: clamp(20px, 4vw, 28px);
-            font-weight: 600;
-            margin-bottom: 40px;
             position: relative;
             display: inline-block;
         }
@@ -430,12 +377,46 @@
         .skill-category-title::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -8px;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
+            width: 50px;
+            height: 2px;
             background: linear-gradient(90deg, transparent, var(--primary-blue), transparent);
+        }
+
+        .skill-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: rgba(26, 26, 26, 0.6);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .skill-badge:hover {
+            background: rgba(0, 212, 255, 0.08);
+            border-color: rgba(0, 212, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .skill-badge-icon {
+            font-size: 18px;
+            line-height: 1;
+        }
+
+        .skill-badge-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-gray);
+            white-space: nowrap;
+        }
+
+        .skill-badge:hover .skill-badge-text {
+            color: var(--text-white);
         }
 
         /* Contact Section */
@@ -1061,7 +1042,24 @@
                     </div>
                 </div>
 
-                <!-- Item 4: Marketing Digital -->
+                <!-- Item 4: Experiência CEO -->
+                <div class="timeline-item wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-icon-wrapper">
+                            <div class="timeline-icon">💼</div>
+                        </div>
+                        <span class="timeline-date">2023 - Presente</span>
+                        <h3 class="timeline-title">CEO & Desenvolvedor Full Stack</h3>
+                        <p class="timeline-subtitle">HTMX</p>
+                        <p class="timeline-description">
+                            Liderança de projetos e equipes com foco em tecnologias modernas e experiência
+                            do usuário, utilizando PHP como linguagem principal no desenvolvimento de soluções web.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 5: Marketing Digital -->
                 <div class="timeline-item wow fadeInUp" data-wow-delay="0.5s">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
@@ -1072,7 +1070,7 @@
                         <h3 class="timeline-title">Marketing Digital & SEO</h3>
                         <p class="timeline-subtitle">Google Digital Garage</p>
                         <p class="timeline-description">
-                            Certificação em marketing digital e estratégias de crescimento
+                            Certificação em marketing digital, SEO, Google Ads e estratégias de crescimento
                             para negócios online. Aplicação prática em projetos reais.
                         </p>
                     </div>
@@ -1141,7 +1139,7 @@
 
                 <!-- Ver Todos os Projetos Card -->
                 <div class="c-xs-12 c-md-6 c-lg-4">
-                    <a href="https://jonathanrbo.github.io/Projetos-Landing-Pages/" class="project-card wow fadeInUp" data-wow-delay="0.3s" style="text-decoration: none; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 400px; background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(0, 102, 255, 0.05) 100%); color: var(--text-white);">
+                    <a href="projetos-links.html" class="project-card wow fadeInUp" data-wow-delay="0.3s" style="text-decoration: none; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 400px; background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(0, 102, 255, 0.05) 100%); color: var(--text-white);">
                         <div class="p-40-all text-center">
                             <div style="font-size: 80px; margin-bottom: 20px; filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.6));">🚀</div>
                             <h3 class="fs-11 fw-700 m-20-b" style="color: var(--text-white);">Ver Todos os Projetos</h3>
@@ -1160,119 +1158,108 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="p-80-tb xs-p-40-tb">
+    <section id="skills" class="p-60-tb xs-p-30-tb">
         <div class="container">
-            <div class="text-center m-60-b xs-m-30-b">
+            <div class="text-center m-40-b xs-m-20-b">
                 <h2 class="section-title wow fadeInUp">Tecnologias & Ferramentas</h2>
             </div>
 
             <!-- Linguagens de Programação -->
-            <div class="m-60-b xs-m-40-b">
+            <div class="m-40-b xs-m-25-b">
                 <div class="text-center">
-                    <h3 class="skill-category-title wow fadeInUp">Linguagens de Programação</h3>
+                    <h3 class="skill-category-title wow fadeInUp fs-9 fw-600 m-25-b">Linguagens de Programação</h3>
                 </div>
-                <div class="row gap-25">
-                    <div class="c-xs-6 c-sm-6 c-md-3">
-                        <div class="skill-item wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="skill-icon">⚡</div>
-                            <p class="fs-8 fw-700">JavaScript</p>
-                        </div>
+                <div class="d-flex f-wrap f-justify-center f-gap-10">
+                    <div class="skill-badge wow fadeInUp" data-wow-delay="0.05s">
+                        <span class="skill-badge-icon">⚡</span>
+                        <span class="skill-badge-text">JavaScript</span>
                     </div>
-                    <div class="c-xs-6 c-sm-6 c-md-3">
-                        <div class="skill-item wow fadeInUp" data-wow-delay="0.2s">
-                            <div class="skill-icon">🐘</div>
-                            <p class="fs-8 fw-700">PHP</p>
-                        </div>
-                    </div>
-                    <div class="c-xs-6 c-sm-6 c-md-3">
-                        <div class="skill-item wow fadeInUp" data-wow-delay="0.3s">
-                            <div class="skill-icon">🔷</div>
-                            <p class="fs-8 fw-700">TypeScript</p>
-                        </div>
-                    </div>
-                    <div class="c-xs-6 c-sm-6 c-md-3">
-                        <div class="skill-item wow fadeInUp" data-wow-delay="0.4s">
-                            <div class="skill-icon">🎨</div>
-                            <p class="fs-8 fw-700">CSS3</p>
-                        </div>
+                    <div class="skill-badge wow fadeInUp" data-wow-delay="0.1s">
+                        <span class="skill-badge-icon">🐘</span>
+                        <span class="skill-badge-text">PHP</span>
                     </div>
                 </div>
             </div>
 
             <!-- Frameworks & CMS -->
-            <div class="m-60-b xs-m-40-b">
+            <div class="m-40-b xs-m-25-b">
                 <div class="text-center">
-                    <h3 class="skill-category-title wow fadeInUp">Frameworks & CMS</h3>
+                    <h3 class="skill-category-title wow fadeInUp fs-9 fw-600 m-25-b">Frameworks & CMS</h3>
                 </div>
-                <div class="row gap-25">
-                    <div class="c-xs-6 c-sm-6 c-md-3">
-                        <div class="skill-item wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="skill-icon">⚛️</div>
-                            <p class="fs-8 fw-700">React</p>
-                        </div>
+                <div class="d-flex f-wrap f-justify-center f-gap-10">
+                    <div class="skill-badge wow fadeInUp" data-wow-delay="0.05s">
+                        <span class="skill-badge-icon">⚛️</span>
+                        <span class="skill-badge-text">React</span>
                     </div>
-                    <div class="c-xs-6 c-sm-6 c-md-3">
-                        <div class="skill-item wow fadeInUp" data-wow-delay="0.2s">
-                            <div class="skill-icon">📗</div>
-                            <p class="fs-8 fw-700">Node.js</p>
-                        </div>
+                    <div class="skill-badge wow fadeInUp" data-wow-delay="0.1s">
+                        <span class="skill-badge-icon">📗</span>
+                        <span class="skill-badge-text">Node.js</span>
                     </div>
-                    <div class="c-xs-6 c-sm-6 c-md-3">
-                        <div class="skill-item wow fadeInUp" data-wow-delay="0.3s">
-                            <div class="skill-icon">🔵</div>
-                            <p class="fs-8 fw-700">WordPress</p>
-                        </div>
+                    <div class="skill-badge wow fadeInUp" data-wow-delay="0.15s">
+                        <span class="skill-badge-icon">🔵</span>
+                        <span class="skill-badge-text">WordPress</span>
                     </div>
-                    <div class="c-xs-6 c-sm-6 c-md-3">
-                        <div class="skill-item wow fadeInUp" data-wow-delay="0.4s">
-                            <div class="skill-icon">⚡</div>
-                            <p class="fs-8 fw-700">HTMX</p>
-                        </div>
+                    <div class="skill-badge wow fadeInUp" data-wow-delay="0.2s">
+                        <span class="skill-badge-icon">⚡</span>
+                        <span class="skill-badge-text">HTMX</span>
+                    </div>
+                    <div class="skill-badge wow fadeInUp" data-wow-delay="0.25s">
+                        <span class="skill-badge-icon">🌐</span>
+                        <span class="skill-badge-text">VanJS</span>
                     </div>
                 </div>
             </div>
 
             <!-- Ferramentas de Design & Edição -->
-            <div class="m-60-b xs-m-40-b">
+            <div class="m-40-b xs-m-25-b">
                 <div class="text-center">
-                    <h3 class="skill-category-title wow fadeInUp">Design & Edição de Vídeo</h3>
+                    <h3 class="skill-category-title wow fadeInUp fs-9 fw-600 m-25-b">Design & Edição de Vídeo</h3>
                 </div>
-                <div class="row gap-25 f-justify-center">
-                    <div class="c-xs-6 c-sm-6 c-md-3">
-                        <div class="skill-item wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="skill-icon">🎨</div>
-                            <p class="fs-8 fw-700">Photoshop</p>
-                        </div>
+                <div class="d-flex f-wrap f-justify-center f-gap-10">
+                    <div class="skill-badge wow fadeInUp" data-wow-delay="0.05s">
+                        <span class="skill-badge-icon">🎨</span>
+                        <span class="skill-badge-text">Photoshop</span>
                     </div>
-                    <div class="c-xs-6 c-sm-6 c-md-3">
-                        <div class="skill-item wow fadeInUp" data-wow-delay="0.2s">
-                            <div class="skill-icon">🖌️</div>
-                            <p class="fs-8 fw-700">Illustrator</p>
-                        </div>
+                    <div class="skill-badge wow fadeInUp" data-wow-delay="0.1s">
+                        <span class="skill-badge-icon">🖌️</span>
+                        <span class="skill-badge-text">Illustrator</span>
                     </div>
-                    <div class="c-xs-6 c-sm-6 c-md-3">
-                        <div class="skill-item wow fadeInUp" data-wow-delay="0.3s">
-                            <div class="skill-icon">🎬</div>
-                            <p class="fs-8 fw-700">Premiere</p>
-                        </div>
+                    <div class="skill-badge wow fadeInUp" data-wow-delay="0.15s">
+                        <span class="skill-badge-icon">🎬</span>
+                        <span class="skill-badge-text">Premiere</span>
                     </div>
-                    <div class="c-xs-6 c-sm-6 c-md-3">
-                        <div class="skill-item wow fadeInUp" data-wow-delay="0.4s">
-                            <div class="skill-icon">✨</div>
-                            <p class="fs-8 fw-700">After Effects</p>
-                        </div>
+                    <div class="skill-badge wow fadeInUp" data-wow-delay="0.2s">
+                        <span class="skill-badge-icon">✨</span>
+                        <span class="skill-badge-text">After Effects</span>
                     </div>
-                    <div class="c-xs-6 c-sm-6 c-md-3">
-                        <div class="skill-item wow fadeInUp" data-wow-delay="0.5s">
-                            <div class="skill-icon">🎞️</div>
-                            <p class="fs-8 fw-700">DaVinci Resolve</p>
-                        </div>
+                    <div class="skill-badge wow fadeInUp" data-wow-delay="0.25s">
+                        <span class="skill-badge-icon">🎞️</span>
+                        <span class="skill-badge-text">DaVinci Resolve</span>
                     </div>
-                    <div class="c-xs-6 c-sm-6 c-md-3">
-                        <div class="skill-item wow fadeInUp" data-wow-delay="0.6s">
-                            <div class="skill-icon">✂️</div>
-                            <p class="fs-8 fw-700">CapCut</p>
-                        </div>
+                    <div class="skill-badge wow fadeInUp" data-wow-delay="0.3s">
+                        <span class="skill-badge-icon">✂️</span>
+                        <span class="skill-badge-text">CapCut</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- IA & Automação -->
+            <div class="m-40-b xs-m-25-b">
+                <div class="text-center">
+                    <h3 class="skill-category-title wow fadeInUp fs-9 fw-600 m-25-b">IA & Automação</h3>
+                </div>
+                <div class="d-flex f-wrap f-justify-center f-gap-10">
+                    <div class="skill-badge wow fadeInUp" data-wow-delay="0.05s">
+                        <span class="skill-badge-icon">🤖</span>
+                        <span class="skill-badge-text">Claude Code</span>
+                    </div>
+                    <div class="skill-badge wow fadeInUp" data-wow-delay="0.1s">
+                        <span class="skill-badge-icon">🎯</span>
+                        <span class="skill-badge-text">Flowise</span>
+                    </div>
+                    <div class="skill-badge wow fadeInUp" data-wow-delay="0.15s">
+                        <span class="skill-badge-icon">🔗</span>
+                        <span class="skill-badge-text">AI Agents</span>
                     </div>
                 </div>
             </div>
@@ -1280,26 +1267,20 @@
             <!-- Ferramentas de Desenvolvimento -->
             <div>
                 <div class="text-center">
-                    <h3 class="skill-category-title wow fadeInUp">Ferramentas de Desenvolvimento</h3>
+                    <h3 class="skill-category-title wow fadeInUp fs-9 fw-600 m-25-b">Ferramentas de Desenvolvimento</h3>
                 </div>
-                <div class="row gap-25 f-justify-center">
-                    <div class="c-xs-6 c-sm-6 c-md-3">
-                        <div class="skill-item wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="skill-icon">💻</div>
-                            <p class="fs-8 fw-700">VS Code</p>
-                        </div>
+                <div class="d-flex f-wrap f-justify-center f-gap-10">
+                    <div class="skill-badge wow fadeInUp" data-wow-delay="0.05s">
+                        <span class="skill-badge-icon">💻</span>
+                        <span class="skill-badge-text">VS Code</span>
                     </div>
-                    <div class="c-xs-6 c-sm-6 c-md-3">
-                        <div class="skill-item wow fadeInUp" data-wow-delay="0.2s">
-                            <div class="skill-icon">📮</div>
-                            <p class="fs-8 fw-700">Postman</p>
-                        </div>
+                    <div class="skill-badge wow fadeInUp" data-wow-delay="0.1s">
+                        <span class="skill-badge-icon">📮</span>
+                        <span class="skill-badge-text">Postman</span>
                     </div>
-                    <div class="c-xs-6 c-sm-6 c-md-3">
-                        <div class="skill-item wow fadeInUp" data-wow-delay="0.3s">
-                            <div class="skill-icon">🔧</div>
-                            <p class="fs-8 fw-700">Git</p>
-                        </div>
+                    <div class="skill-badge wow fadeInUp" data-wow-delay="0.15s">
+                        <span class="skill-badge-icon">🔧</span>
+                        <span class="skill-badge-text">Git</span>
                     </div>
                 </div>
             </div>
