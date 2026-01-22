@@ -862,7 +862,7 @@
         @media (max-width: 991px) {
             .mobile-menu-btn {
                 display: block;
-                z-index: 1001;
+                z-index: 1002;
                 padding: 6px 10px;
                 font-size: 19px;
             }
@@ -870,36 +870,46 @@
             .nav-menu {
                 display: flex;
                 position: fixed;
-                top: 70px;
+                top: 0;
                 left: 0;
                 right: 0;
+                bottom: 0;
                 background: rgba(10, 10, 10, 0.98);
                 backdrop-filter: blur(20px);
                 flex-direction: column;
-                padding: 30px 20px;
-                gap: 25px;
-                border-bottom: 1px solid rgba(0, 212, 255, 0.3);
-                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
-                transform: translateY(-100%);
+                padding: 100px 30px 30px;
+                gap: 20px;
+                border-bottom: none;
+                box-shadow: none;
+                transform: translateX(100%);
                 opacity: 0;
                 transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
                 pointer-events: none;
+                z-index: 1001;
+                justify-content: flex-start;
+                align-items: center;
             }
 
             .nav-menu.active {
-                transform: translateY(0);
+                transform: translateX(0);
                 opacity: 1;
                 pointer-events: all;
             }
 
             .nav-link {
-                font-size: 18px;
-                padding: 10px 0;
-                border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+                font-size: 20px;
+                padding: 15px 0;
+                border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+                width: 100%;
+                text-align: center;
             }
 
             .nav-link:last-child {
                 border-bottom: none;
+            }
+
+            .nav-link:hover {
+                background: rgba(0, 212, 255, 0.05);
             }
         }
 
@@ -1565,8 +1575,20 @@ Feito com amor, sem conservantes, sem químicas. Só ingredientes naturais que v
         function toggleMenu() {
             const menu = document.getElementById('navMenu');
             const menuBtn = document.querySelector('.mobile-menu-btn');
-            menu.classList.toggle('active');
+            const isActive = menu.classList.toggle('active');
             menuBtn.classList.toggle('active');
+
+            // Bloquear/desbloquear scroll do body
+            document.body.style.overflow = isActive ? 'hidden' : '';
+        }
+
+        // Fechar menu
+        function closeMenu() {
+            const menu = document.getElementById('navMenu');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            menu.classList.remove('active');
+            menuBtn.classList.remove('active');
+            document.body.style.overflow = '';
         }
 
         // Close menu when clicking outside
@@ -1577,8 +1599,14 @@ Feito com amor, sem conservantes, sem químicas. Só ingredientes naturais que v
             const isClickOnButton = menuBtn.contains(event.target);
 
             if (!isClickInsideMenu && !isClickOnButton && menu.classList.contains('active')) {
-                menu.classList.remove('active');
-                menuBtn.classList.remove('active');
+                closeMenu();
+            }
+        });
+
+        // Fechar menu com tecla ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeMenu();
             }
         });
 
@@ -1588,15 +1616,16 @@ Feito com amor, sem conservantes, sem químicas. Só ingredientes naturais que v
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    // Close mobile menu if open
-                    const menu = document.getElementById('navMenu');
-                    const menuBtn = document.querySelector('.mobile-menu-btn');
-                    menu.classList.remove('active');
-                    menuBtn.classList.remove('active');
+                    // Fechar menu mobile primeiro
+                    closeMenu();
+
+                    // Aguardar um pouco para a animação do menu
+                    setTimeout(() => {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }, 100);
                 }
             });
         });
